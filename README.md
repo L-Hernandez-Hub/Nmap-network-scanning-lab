@@ -21,7 +21,7 @@ Identified local network configuration using ipconfig.
 ### 2. Network Discovery
 Performed host discovery to identify active systems on the network.
 
-![discovery](2-network-discovery.png)
+![discovery](2-network-dsicovery.png)
 
 ### 3. Service Enumeration
 Scanned target system to identify open ports and services.
