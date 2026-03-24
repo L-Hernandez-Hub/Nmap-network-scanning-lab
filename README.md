@@ -70,7 +70,7 @@ nmap -p 3389 192.168.64.14
 
 ![rdp-open](4-rdp-open.png)
 
-Description: 
+Description:
 nmap output showing port 3389 in an open state.
 
 ---
