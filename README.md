@@ -25,7 +25,7 @@ ipconfig
 
 ![ipconfig](1-ipconfig.png)
 
-Description:
+**Description:**
 Command Prompt displaying ipconfig output with the system’s IPv4 address, subnet mask, and default gateway.
 
 ---
@@ -40,7 +40,7 @@ nmap -sn 192.168.64.0/24
 
 ![discovery](2-network-dsicovery.png)
 
-Description:
+**Description:**
 Command prompt showing nmap host discovery scan results listing active IP addresses detected on the subnet.
 
 ---
@@ -55,7 +55,7 @@ nmap -sV 192.168.64.0/24
 
 ![services](3-service-enumeration.png)
 
-Description:
+**Description:**
 nmap results showing scanned ports on a target system, including port numbers and their states (open/closed). 
 
 ---
@@ -70,7 +70,7 @@ nmap -p 3389 192.168.64.14
 
 ![rdp-open](4-rdp-open.png)
 
-Description:
+**Description:**
 nmap output showing port 3389 in an open state.
 
 ---
@@ -85,7 +85,7 @@ nmap -p 3389 192.168.64.14
 
 ![rdp-filtered](5-rdp-filtered.png)
 
-Description:
+**Description:**
 nmap output showing port 3389 state changed to filtered, indicating Remote Desktop is no longer accessible.
 
 ---
