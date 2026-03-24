@@ -40,7 +40,7 @@ nmap -sn 192.168.64.0/24
 
 ![discovery](2-network-dsicovery.png)
 
-Description: 
+Description:
 Command prompt showing nmap host discovery scan results listing active IP addresses detected on the subnet.
 
 ---
@@ -55,8 +55,8 @@ nmap -sV 192.168.64.0/24
 
 ![services](3-service-enumeration.png)
 
-Description: 
-nmap results showing scanned ports on a target system, including port numbers and their states (open/closed).
+Description:
+nmap results showing scanned ports on a target system, including port numbers and their states (open/closed). 
 
 ---
 
