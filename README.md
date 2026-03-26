@@ -9,7 +9,7 @@ Simulate and troubleshoot a real-world IT support scenario where a domain user i
 - Windows Server 2019 Virtual Machine
 - Windows 11 Pro Virtual Machine
 - Active Directory Domain Services
--Group Policy Management
+- Group Policy Management
 
 ---
 
