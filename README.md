@@ -16,7 +16,7 @@ Simulate and troubleshoot a real-world IT support scenario where a domain user i
 ## Ticket
 User reports inability to connect to a Windows Server via Remote Desktop using domain credentials. Connection attempt results in access denied error. Support ticket has been received.
 
-![screenshot 1](1-support-ticket.png)
+![screenshot 1](Screenshots/1-support-ticket.png)
 
 ---
 
@@ -25,9 +25,9 @@ User reports inability to connect to a Windows Server via Remote Desktop using d
 ### 1. Identified the Problem
 Attempted a Remote Desktop connection using domain user credentials and received an authorization error.
 
-![screenshot 2](2-remote-login.png)
+![screenshot 2](Screenshots/2-remote-login.png)
 
-![screenshot 3](3-remote-connection-denied.png)
+![screenshot 3](Screenshots/3-remote-connection-denied.png)
 
 ---
 
@@ -39,7 +39,7 @@ Formed an hypothesis of network connection between the domain user and server. T
 ping
 ```
 
-![screenshot 4](4-ping-windows-server.png)
+![screenshot 4](Screenshots/4-ping-windows-server.png)
 
 ---
 
@@ -51,7 +51,7 @@ Formed another hypothesis of Port 3389 (RDP) being filtered or closed. Logged on
 nmap -p 3389 192.168.64.14
 ```
 
-![screenshot 5](5-rdp-open.png)
+![screenshot 5](Screenshots/5-rdp-open.png)
 
 ---
 
@@ -59,25 +59,25 @@ nmap -p 3389 192.168.64.14
 Created a third theory of the user not being a Member in Remote Desktop Users. Opened Active Directory Users and Computers domain → Builtin → Remote Desktop Users Security Group properties and clicked on the Members tab and confimed the domain user was not a member, explaining the login failure.
 
 
-![Screenshot 6](6-members-tab.png)
+![Screenshot 6](Screenshots/6-members-tab.png)
 
 ---
 
 ### 5. Established a Plan of Action and Implemented the Solution
 Added the domain user to the Remote Desktop User Security Group. Attempted Remote Desktop connection again but the login still failed with an authorization error. This indicated that group membership alone was not sufficient and that additional policy restrictions might be preventing access.
 
-![Screenshot 7](7-added-user.png)
+![Screenshot 7](Screenshots/7-added-user.png)
 
-![Screenshot 8](8-remote-login-unsuccessful.png)
+![Screenshot 8](Screenshots/8-remote-login-unsuccessful.png)
 
 ---
 
 ### 6. Continued Troubleshooting
 Created an hypothesis that local policies needs to be properly configured. Tested the theory by opening Group Policy Management, opened Forest → Domain → Domain Controller, right clicked on Domain Controller Policy → Edit → Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Right Assignment and acknowledged policy " Allow log on through Remote Desktop Services" was not defined. Added the domain user to this policy to grant the required logon rights.
 
-![Screenshot 9](9-gpo-management.png)
+![Screenshot 9](Screenshots/9-gpo-management.png)
 
-![Screenshot 10](10-added-user-gpo.png)
+![Screenshot 10](Screenshots/10-added-user-gpo.png)
 
 ---
 
@@ -89,19 +89,19 @@ Used command `gpupdate` to force new Group Policy settings. Verified successful 
 gpupdate /force
 ```
 
-![Screenshot 11](11-gpupdate-force.png)
+![Screenshot 11](Screenshots/11-gpupdate-force.png)
 
 **Command Used**
 ```
 ipconfig
 ```
 
-![Screenshot 12](12-ipconfig.png)
+![Screenshot 12](Screenshots/12-ipconfig.png)
 
 ### 6. Documented Findings, Actions and Outcomes
 Documented the issue, troubleshooting steps, resolutions and verification results in the support ticket for future reference and auditing. Ticket closed.
 
-![Screenshot 13](13-ticket-closed.jpeg)
+![Screenshot 13](Screenshots/13-ticket-closed.jpeg)
 
 ---
 
